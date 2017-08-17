@@ -8,8 +8,6 @@
     De MediaMasters vraag voor missie 2 is:
     Wat is het juiste wachtwoord?
 
-
-
   -->
 
   <title>De MediaMissie van FutureNL</title>
@@ -51,11 +49,6 @@
   </div>
 
 <script>
-if (!String.prototype.startsWith) {
-    String.prototype.startsWith = function(searchString, position){
-      return this.substr(position || 0, searchString.length) === searchString;
-  };
-}
 
 function controleerWachtwoord() {
   var wachtwoordVeld = document.getElementById('wachtwoord');
@@ -64,8 +57,14 @@ function controleerWachtwoord() {
   if (wachtwoord.startsWith('programmeren is ') && wachtwoord.endsWith('leuk') && wachtwoord.length == 20) {
     alert('Ja goed!\nDat is het juiste antwoord.');
   } else {
-    alert('Helaas, probeer het nog een keer.');
+    alert('Helaas, probeer het nog een keer.\n\nTip: onderin de code van de pagina\nwordt het wachtwoord gecontroleerd!');
   }
+}
+
+if (!String.prototype.startsWith) {
+    String.prototype.startsWith = function(searchString, position){
+      return this.substr(position || 0, searchString.length) === searchString;
+  };
 }
 
 if (!String.prototype.endsWith)
