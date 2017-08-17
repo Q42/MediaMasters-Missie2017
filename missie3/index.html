@@ -1,0 +1,78 @@
+<html>
+  <head>  
+  
+    <!--
+  
+      De laatste missie!
+  
+      De MediaMasters vraag voor missie 3 is:
+      Wat is het juiste wachtwoord?
+  
+    -->
+  
+    <title>De MediaMissie van FutureNL</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="../vormgeving.css" rel="stylesheet">
+    
+    <meta name="description" content="MediaMasters Missie - kun jij de code kraken?">
+    <meta name="author" content="Q42">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+  
+    <div class="site-wrapper">
+  
+      <div class="site-wrapper-inner">
+  
+        <div class="cover-container">
+  
+          <div class="inner cover">
+            <h1 class="cover-heading">Missie 3</h1>
+            <p class="lead">Voer het juiste wachtwoord in.</p>
+            <form onSubmit="controleerWachtwoord()" method="POST">
+              <input type="password" name="wachtwoord" id="wachtwoord" autofocus />
+              <input type="submit" value="Verzenden" />
+            </form>
+          </div>
+  
+          <div class="mastfoot">
+            <div class="inner">
+              <p>MediaMissie van <a href="http://www.futurenl.org">FutureNL</a>, met hulp van <a href="https://www.q42.nl">Q42</a>.</p>
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  <script>
+  
+  var valideWachtwoorden = null;
+
+  function controleerWachtwoord() {
+    var wachtwoordVeld = document.getElementById('wachtwoord');
+    var wachtwoord = wachtwoordVeld.value;
+
+    if (valideWachtwoorden.indexOf(wachtwoord) >= 0) {
+      alert('Ja goed!\nDat is een goed antwoord.');
+    } else {
+      alert('Helaas, probeer het nog een keer.\n\nTip: de lijst met juiste wachtwoorden wordt uit een extern bestand gehaald!');
+    }
+  }
+
+  function leesValideWachtwoorden () {
+    valideWachtwoorden = this.responseText.split('\n');
+    console.log(valideWachtwoorden, this.responseText);
+  }
+
+  var validewachtwoordenRequest = new XMLHttpRequest();
+  validewachtwoordenRequest.addEventListener("load", leesValideWachtwoorden);
+  validewachtwoordenRequest.open("GET", "wachtwoorden.txt");
+  validewachtwoordenRequest.send();  
+  </script>
+  
+  </body>
+  </html>
