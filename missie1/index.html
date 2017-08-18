@@ -40,7 +40,14 @@
           <p class="lead">... je van elke website op het internet de code kunt bekijken?</p>
           <p>Probeer het zelf maar eens.</p>
           <p>Klik met je rechter muisknop ergens op deze website en kies voor het bekijken van de "source" of "broncode".</p>
-          <p><img src="view-source.png" name="view-source.png" /></p>
+          <script>
+            var browser = navigator.userAgent.toLowerCase();
+            if (browser.indexOf('safari') >= 0 && browser.indexOf('chrome') == -1) {
+              document.write('<iframe src="https://www.youtube.com/embed/__BxxUFr1CA" frameborder="0" allowfullscreen></iframe>');
+            } else {
+              document.write('<p><img src="view-source.png" name="view-source.png" /></p>');
+            }
+          </script>
         </div>
 
         <div class="mastfoot">
