@@ -8,6 +8,10 @@
     De MediaMasters vraag voor missie 2 is:
     Wat is het juiste wachtwoord?
 
+    Tip: om de invoer van een gebruiker te controleren
+    wordt JavaScript gebruikt. De javascript vind je 
+    helemaal onderin de pagina!
+
   -->
 
   <title>De MediaMissie van FutureNL</title>
@@ -18,6 +22,24 @@
   <meta name="description" content="MediaMasters Missie - kun jij de code kraken?">
   <meta name="author" content="Q42">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+  if (!String.prototype.startsWith) {
+    String.prototype.startsWith = function(searchString, position){
+      return this.substr(position || 0, searchString.length) === searchString;
+    };
+  }
+
+  if (!String.prototype.endsWith)
+    String.prototype.endsWith = function(searchStr, Position) {
+      // This works much better than >= because
+      // it compensates for NaN:
+      if (!(Position < this.length))
+        Position = this.length;
+      else
+        Position |= 0; // round position
+      return this.substr(Position - searchStr.length, searchStr.length) === searchStr;
+    };
+  </script>
 </head>
 <body>
 
@@ -60,23 +82,6 @@ function controleerWachtwoord() {
     alert('Helaas, probeer het nog een keer.\n\nTip: onderin de code van de pagina\nwordt het wachtwoord gecontroleerd!');
   }
 }
-
-if (!String.prototype.startsWith) {
-  String.prototype.startsWith = function(searchString, position){
-    return this.substr(position || 0, searchString.length) === searchString;
-  };
-}
-
-if (!String.prototype.endsWith)
-  String.prototype.endsWith = function(searchStr, Position) {
-    // This works much better than >= because
-    // it compensates for NaN:
-    if (!(Position < this.length))
-      Position = this.length;
-    else
-      Position |= 0; // round position
-    return this.substr(Position - searchStr.length, searchStr.length) === searchStr;
-  };
 </script>
 
 </body>
