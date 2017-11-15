@@ -2,14 +2,16 @@
   <head>  
   
     <!--
-  
-      De laatste missie!
-  
-      De MediaMasters vraag voor missie 3 is:
+
+      Ah, goed dat je er bent!
+
+      In deze website wordt het juiste wachtwoord opgehaald  
+      uit een extern bestand! Kun jij de website hacken en het wachtwoord vinden?  
+
+      De MediaMissie is:
       Wat is het juiste wachtwoord?
  
-      Tip: de lijst met juiste wachtwoorden wordt 
-      uit een extern bestand gehaald!
+      Tip:  Probeer het externe bestand te openen.
 
     -->
   
@@ -70,27 +72,27 @@
   
   <script>
   
-  var valideWachtwoorden = null;
+  var valideWachtwoord = null;
 
   function controleerWachtwoord() {
     var wachtwoordVeld = document.getElementById('wachtwoord');
     var wachtwoord = wachtwoordVeld.value;
 
-    if (valideWachtwoorden.indexOf(wachtwoord) >= 0) {
+    if (valideWachtwoord == wachtwoord) {
       alert('Ja goed!\nDat is een goed antwoord.');
     } else {
       alert('Helaas, probeer het nog een keer.\n\nTip: de lijst met juiste wachtwoorden wordt uit een extern bestand gehaald!');
     }
   }
 
-  function leesValideWachtwoorden () {
-    valideWachtwoorden = this.responseText.split('\n');
+  function leesValideWachtwoord () {
+    valideWachtwoord = this.responseText;
   }
 
-  var validewachtwoordenRequest = new XMLHttpRequest();
-  validewachtwoordenRequest.addEventListener("load", leesValideWachtwoorden);
-  validewachtwoordenRequest.open("GET", "https://q42.github.io/MediaMasters-Missie2017/missie3/wachtwoorden.txt");
-  validewachtwoordenRequest.send();  
+  var validewachtwoordRequest = new XMLHttpRequest();
+  validewachtwoordRequest.addEventListener("load", leesValideWachtwoord);
+  validewachtwoordRequest.open("GET", "https://q42.github.io/MediaMasters-Missie2017/missie3/wachtwoord.txt");
+  validewachtwoordRequest.send();  
   </script>
   
   </body>
