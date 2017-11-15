@@ -1,4 +1,3 @@
-# MediaMasters Missies 2017, door FutureNL
 Kun jij de code kraken?
 
 ## [Missie 1: Code bekijken](/missie1/)
