@@ -39,6 +39,23 @@
             </form>
           </div>
   
+          <div class="smaller">
+            <p>Wist je dat je van elke website op het internet de code kunt bekijken?</p>
+            <p>Probeer het zelf maar eens. Je hebt er wel een computer voor nodig, met een iPad/tablet wordt het lastiger.</p>
+
+            <!-- In de browser Safari moet je op een andere manier de code bekijken -->
+            <script>
+              var browser = navigator.userAgent.toLowerCase();
+              if (browser.indexOf('safari') >= 0 && browser.indexOf('chrome') == -1) {
+                document.write('<p>Eerst moet je de "developer modus" van je browser aanzetten, daarna kan je de code bekijken. Het filmpje laat zien hoe dat werkt.</p>');
+                document.write('<iframe src="https://www.youtube.com/embed/__BxxUFr1CA" frameborder="0" allowfullscreen></iframe>');
+              } else {
+                document.write('<p>Klik met je rechter muisknop ergens op deze website en kies voor het bekijken van de "source" of "broncode".</p>');
+                document.write('<p><img src="../view-source.png" name="view-source.png" /></p>');
+              }
+            </script>
+          </div>
+          
           <div class="mastfoot">
             <div class="inner">
               <p>MediaMissie van <a href="http://www.futurenl.org">FutureNL</a>, met hulp van <a href="https://www.q42.nl">Q42</a>.</p>
